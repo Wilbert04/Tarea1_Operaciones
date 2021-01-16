@@ -1,0 +1,54 @@
+﻿@page "/Operaciones"
+
+<h3>Operaciones</h3>
+
+<div>
+    <label>
+        Primer numero:
+        <input @bind=" PrimerNumero" />
+    </label>
+</div>
+
+<div>
+    <label>
+        Segundo numero:
+        <input @bind="SegundoNumero" />
+    </label>
+</div>
+
+<div>
+    <label>  Suma: @Sumar </label>
+</div>
+
+<div>
+    <label> Resta: @Restar </label>
+</div>
+
+<div>
+    <label> Multipliacion: @Multiplicar </label>
+</div>
+
+<button class="btn btn-primary" @onclick="Calcular">Calcular</button>
+@code{
+
+    public int PrimerNumero { get; set; } = 10;
+    public int SegundoNumero { get; set; } = 2;
+    public int suma { get; set; } = 0;
+    public int resta { get; set; } = 0;
+    public int multiplica { get; set; } = 0;
+    public String Sumar { get; set; }
+    public String Restar { get; set; }
+    public String Multiplicar { get; set; }
+
+   public void Calcular()
+    {
+        var suma = PrimerNumero+SegundoNumero;
+        Sumar = suma.ToString(".00");
+        var resta = PrimerNumero-SegundoNumero;
+        Restar= resta.ToString(".00");
+        var multiplicacion= PrimerNumero*SegundoNumero;
+        Multiplicar= multiplicacion.ToString(".00");
+    }
+
+    
+}
